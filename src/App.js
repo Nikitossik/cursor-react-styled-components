@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from 'styled-components';
+import './font.css';
+
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import Home from './components/Home';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from 'react-router-dom';
+
+const Global = createGlobalStyle`
+  *, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body{
+    background: #121212;
+    min-height: 100vh;
+  }
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const registered = localStorage.getItem('registered');
+    return (
+        <Router>
+            <Global />
+            <Switch>
+                <Route exact path="/cursor-styled-components">
+                    {registered ? (
+                        <Redirect to="/cursor-styled-components/sign-in" />
+                    ) : (
+                        <Redirect to="/cursor-styled-components/sign-up" />
+                    )}
+                </Route>
+                <Route path="/cursor-styled-components/home" component={Home} />
+                <Route
+                    path="/cursor-styled-components/sign-in"
+                    component={SignIn}
+                />
+                <Route
+                    path="/cursor-styled-components/sign-up"
+                    component={SignUp}
+                />
+            </Switch>
+        </Router>
+    )
 }
 
 export default App;
