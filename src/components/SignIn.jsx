@@ -89,11 +89,11 @@ export default function SignIn() {
     const authorized = JSON.parse(localStorage.getItem('signedIn'))
 
 	if (authorized) {
-		return <Redirect to="/home" />
+		return <Redirect to="/cursor-styled-components/home" />
 	}
 	if (signedIn) {
 		localStorage.setItem('signedIn', signedIn)
-		return <Redirect to="/home" />
+		return <Redirect to="/cursor-styled-components/home" />
 	}
 
     return (
@@ -139,7 +139,7 @@ export default function SignIn() {
                     <Button onClick={handleSignIn} type='submit'>Sign in</Button>
                     <div className="form-redirect">
                         <Link className='redirect-link' to=''>Forgot password?</Link>
-                        <Link onClick={handleSignUp} className='redirect-link' to='/sign-up'>Don't have an account? Sign up</Link>
+                        <Link onClick={handleSignUp} className='redirect-link' to='/cursor-styled-components/sign-up'>Don't have an account? Sign up</Link>
                     </div>
                 </div>
             </Form>
