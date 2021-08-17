@@ -33,20 +33,20 @@ function App() {
         <Router>
             <Global />
             <Switch>
-                <Route exact path="/cursor-styled-components/">
+                <Route exact path="/">
                     {registered ? (
-                        <Redirect to="/cursor-styled-components/sign-in" />
+                        <Redirect to="/sign-in" />
                     ) : (
-                        <Redirect to="/cursor-styled-components/sign-up" />
+                        <Redirect to="/sign-up" />
                     )}
                 </Route>
-                <Route exact path="/cursor-styled-components/home" component={Home} />
+                <Route exact path="/home" component={Home} />
                 <Route
-                    path="/cursor-styled-components/sign-in"
+                    path="/sign-in"
                     component={SignIn}
                 />
                 <Route
-                    path="/cursor-styled-components/sign-up"
+                    path="/sign-up"
                     component={SignUp}
                 />
             </Switch>

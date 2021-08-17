@@ -14,7 +14,7 @@ export default function Home(){
     
     if (!sigedIn){
         localStorage.setItem('signedIn', sigedIn);
-        return <Redirect to='/cursor-styled-components/sign-in'/>
+        return <Redirect to='/sign-in'/>
     }
 
     return (

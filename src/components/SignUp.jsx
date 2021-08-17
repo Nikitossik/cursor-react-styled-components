@@ -76,7 +76,7 @@ export default function SignUp() {
     if (registered){
         localStorage.setItem('registered', registered);
         localStorage.setItem('signedIn', signedIn);
-        return <Redirect to='/cursor-styled-components/home'/>
+        return <Redirect to='/home'/>
     }
 
     return (
@@ -133,7 +133,7 @@ export default function SignUp() {
                 <div className="form-footer">
                     <Button onClick={handleSignUp} type='submit'>Sign up</Button>
                     <div className="form-redirect">
-                        <Link className='redirect-link' to='/cursor-styled-components/sign-in'>Already have an account? Sign in</Link>
+                        <Link className='redirect-link' to='/sign-in'>Already have an account? Sign in</Link>
                     </div>
                 </div>
             </Form>
